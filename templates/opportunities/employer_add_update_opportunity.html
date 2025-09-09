@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user_type == "employer" %}
+    {% include "employers/navbar.html" %}
+{% elif user_type == "admin" %}
+    {% include "user/navbar.html" %}
+{% endif %}
+<div class="container">
+    <div class="card-wrapper">
+      <div class="card pb-5 " style="border:none; margin-bottom: -0%;">
+        
+        <h1 class="center">Add / Update Placement</h1>
+        
+        <form class="update_add_form">
+          
+          <label for="_id">ID</label>
+          <input name="_id" id="_id" class="form-control mb-2" type="text" readonly value="{{ opportunity._id }}" disabled />
+  
+          <label for="title">Title</label>
+          <input name="title" id="title" class="form-control mb-2" type="text" value="{{ opportunity.title }}" />
+  
+          <label for="description">Description</label>
+          <textarea id="description" name="description" class="form-control mb-2">{{ opportunity.description }}</textarea>
+  
+          <label for="course">Course Required</label>
+          <select id="course" name="course" class="form-control mb-2" required>
+            <option value="" disabled selected>Select a course</option>
+            {% for course in courses %}
+              <option value="{{ course.course_id }}" {% if course.course_id == opportunity.course_required %}selected{% endif %}>
+                {{ course.course_id }}: {{ course.course_name }}
+              </option>
+            {% endfor %}
+          </select>
+  
+          <label for="url">Placement URL</label>
+          <input type="text" id="url" name="url" class="form-control mb-2" placeholder="URL for placement" value="{{ opportunity.url }}" />
+  
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" class="form-control mb-2" placeholder="Building, Street, City, Postcode" value="{{ opportunity.location }}" />
+  
+          <label for="spots_available">Spots Available</label>
+          <input type="number" id="spots_available" name="spots_available" class="form-control mb-2" placeholder="Number of spots available" value="{{ opportunity.spots_available }}" />
+  
+          <label for="duration">Placement Duration</label>
+          <select id="duration" name="duration" class="form-control mb-2" required>
+            <option value="" disabled selected>Select a duration</option>
+            <option value="1_day" {% if "1_day" == opportunity.placement_duration %}selected{% endif %}>1 Day</option>
+            <option value="1_week" {% if "1_week" == opportunity.placement_duration %}selected{% endif %}>1 Week</option>
+            <option value="1_month" {% if "1_month" == opportunity.placement_duration %}selected{% endif %}>1 Month</option>
+            <option value="3_months" {% if "3_months" == opportunity.placement_duration %}selected{% endif %}>3 Months</option>
+            <option value="6_months" {% if "6_months" == opportunity.placement_duration %}selected{% endif %}>6 Months</option>
+            <option value="12_months" {% if "12_months" == opportunity.placement_duration %}selected{% endif %}>12 Months</option>
+          </select>
+  
+          <label for="modules">Module Required</label>
+            <select id="modules" name="modules" class="form-control mb-2" required>
+            <option value="" disabled selected>Select a module</option>
+                {% for module in modules %}
+            <option value="{{ module.module_id }}" {% if module.module_id == opportunity.module_required %}selected{% endif %}>
+                {{ module.module_id }}: {{ module.module_name }}
+            </option>
+            {% endfor %}
+            </select>
+  
+          <input name="employer_id" id="employer_id" class="form-control mb-2" type="hidden" value="{{ opportunity.employer_id if opportunity.employer_id else employer._id }}" />
+  
+          <p class="error error--hidden"></p>
+          <p class="success success--hidden"></p>
+  
+          <div class="button-group" style="text-align:center; margin-top:20px;">
+            <input type="submit" value="Add / Update" class="btn" />
+            <a href="javascript:history.back()" class="btn">Go Back</a>
+          </div>
+  
+        </form>
+  
+      </div>
+    </div>
+  </div>
+            <script src="/static/employer_add_update_opportunity/script.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#modules').selectize({
+                        plugins: ["remove_button"],
+                        sortField: 'text',
+                    });
+                    $('#course').selectize({
+                        plugins: [ "remove_button"],
+                        sortField: 'text',
+                    });
+                    $('#duration').selectize({
+                        sortField: 'text',
+                    });
+                });
+            </script>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main id="main" class="homepage" tabindex="-1">
+            
+
+<style>
+    .stats_section_18577 {
+        background-image: url('/static/images/research-homepage-slide.jpg');
+    }
+
+    @media screen and (min-width: 600px) {
+        .stats_section_18577 {
+            background-image: url('/static/images/SDRL-28homepage.jpg');
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        .stats_section_18577 {
+            background-image: url('/static/images/About-Clearing-2400x1020.jpg');
+        }
+    }
+</style>
+<style>
+    .hero_image_10912 {
+        background-image: url('/static/images/research-homepage-slide.jpg');
+    }
+
+    @media screen and (min-width: 600px) {
+        .hero_image_10912 {
+            background-image: url('/static/images/SDRL-28homepage.jpg');
+        }
+    }
+
+    @media screen and (min-width: 800px) {
+        .hero_image_10912 {
+            background-image: url('/static/images/About-Clearing-2400x1020.jpg');
+        }
+    }
+</style>
+
+<div class="section hero hero_image_10912 pt-5">
+    <span id="d.en.10912"></span>
+  	<div class="hero_overlay"></div>
+  
+    <div class="container" style="width: 25rem;">
+        <div class="hero_content" style="border: 1px solid rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0.3); padding: 8% 8% 0% 8% ; margin-bottom: -7%;">
+            
+                    <h2 class="center">Log In</h2>
+                    <div class="form-group">
+                        
+                        <select id="userType" class="field" onchange="toggleLoginForm()">
+                            <option value="student">Student</option>
+                            <option value="admin">Placement Team</option>
+                            <option value="employer">Employer</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Student Login Form -->
+                    <form id="studentLoginForm" class="login_form">
+                        <input type="search"
+                               name="student_id"
+                               class="field"
+                               placeholder="Student Number (e.g. 52327765)"
+                               required />
+                               <div class="password-container">
+                                <input type="password"
+                                       name="password"
+                                       class="field"
+                                       placeholder="Password"
+                                       required />
+                                <span class="toggle-password"><i class="fas fa-unlock" style="color:#1F3165;"></i></span>
+                              </div>
+                        <div class="error-container">
+                            <p class="error error--hidden"></p>
+                        </div>
+                        
+                            <a class="badge bg-warning text-dark d-flex justify-content-center" role="alert" href="/user/help">Need help?</a>
+                        
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+                    
+                    <!-- Admin Login Form -->
+                    <form id="adminLoginForm" class="login_form">
+                        <input type="search" name="email" class="field" placeholder="Email" required />
+                        <div class="password-container">
+                            <input type="password"
+                                   name="password"
+                                   class="field"
+                                   placeholder="Password"
+                                   required />
+                            <span class="toggle-password"><i class="fas fa-unlock" style="color:#1F3165;"></i></span>
+                          </div>
+                        <div class="error-container">
+                            <p class="error error--hidden"></p>
+                        </div>
+                        <a class="badge bg-warning text-dark d-flex justify-content-center" role="alert" href="/user/help">Need help?</a>
+                        <button type="submit" class="btn btn-primary ">Log In</button>
+                    </form>
+                    
+                    <!-- Employer Login Form -->
+                    <form id="employerLoginForm" class="login_form" style="display: none;">
+                        <input type="search" name="email" class="field" placeholder="Email" required />
+                        <div class="error-container">
+                            <p class="error error--hidden"></p>
+                        </div>
+                        <a class="badge bg-warning text-dark d-flex justify-content-center" role="alert" href="/user/help">Need help?</a>
+                        <button type="submit" class="btn btn-primary ">Log In</button>
+                    </form>
+                </div>
+                
+                <script src="/static/unified_login/script.js"></script>
+            </div>
+            
+            <!-- OTP Modal (Outside the card-wrapper) -->
+            <div id="otpModal" class="modal">
+                <div class="modal-overlay">
+                <div class="modal-dialog">
+                    <div class="modal-header" style="margin-bottom: -40px;">
+                        <h1>Verification</h1>
+                    </div>
+                    <div class="modal-body" style="margin-bottom: -30px;">
+                        <p>Enter the OTP sent to your email:</p>
+                        <input type="text" id="otpInput" class="field" autocomplete="off" />
+                        <div class="otp-error-container">
+                            <p class="error error--hidden otp_error"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="submitOtp()" class="btn btn-primary" style="margin-bottom: 10px;">Submit</button>
+                        <button onclick="cancelOtp()" class="btn btn-danger">Cancel</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+    </div>
+        </main>
+
+
+
+
+
+
+    
+    <style>
+        .field {
+  width: 100%;
+  height: 45px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+input[type="search"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 45px;  
+  padding: 0.5rem 1rem; 
+  box-sizing: border-box;
+  font-size: 1rem; 
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #555;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1rem;
+  background: transparent;
+}
+
+        .card-wrapper {
+            min-height: 80vh;
+            padding: 20px 0;
+        }
+
+        .login-card {
+            max-width: 500px;
+            min-height: 500px;
+            padding: 30px;
+        }
+        
+        .login_form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+        
+        .error-container {
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .error {
+            color: white;
+            background-color: #d91111;
+            padding: 8px 15px;
+            text-align: center;
+            border-radius: 4px;
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 90%;
+        }
+        
+        .error--hidden {
+            display: none;
+        }
+        
+        .login-btn {
+            
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            display: block;
+            text-align: center;
+            height: 50px;
+        }
+        
+        .btn {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        /* New OTP Modal Styling with Fixed Layout */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 9999;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .modal-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            overflow: hidden;
+            pointer-events: auto;
+        }
+        
+        .modal-header {
+            background-color: #f8f8f8;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: #22699a;
+            font-size: 18px;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-body p {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .modal-footer .login-btn {
+            margin: 0 0 10px 0;
+            height: auto;
+        }
+        
+        .modal-footer .btn {
+            margin: 0;
+        }
+        
+        .otp-error-container {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        #otpInput {
+            height: 48px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2px;
+            width: 100%;
+        }
+
+    .password-container {
+        position: relative;
+    }
+    
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #22699a;
+        font-size: 18px;
+        user-select: none;
+    }
+    
+    .toggle-password:hover {
+        color: #1a5276;
+    }
+
+    </style>
+    
+    <script>
+        // Override the default modal display behavior in the page
+        function showOtpModal() {
+            document.getElementById('otpModal').style.display = 'block';
+        }
+        
+        function hideOtpModal() {
+            document.getElementById('otpModal').style.display = 'none';
+        }
+    </script>
+{% endblock content %} 

@@ -1,0 +1,234 @@
+/* Form Element Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select,
+.form-control {
+    border-radius: 8px !important;
+    border: 1px solid #dcdcdc !important;
+    padding: 10px 15px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+    background-color: #fff !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+    border-color: #1c4392 !important;
+    box-shadow: 0 0 0 3px rgba(28, 67, 146, 0.1) !important;
+    outline: none !important;
+}
+
+/* Custom select styling */
+select {
+    appearance: none !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+    background-size: 16px !important;
+    padding-right: 40px !important;
+}
+
+/* Button styling */
+.btn {
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+    background-color: #1c4392 !important;
+    border-color: #1c4392 !important;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #153475 !important;
+    border-color: #153475 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+/* For Firefox */
+::-moz-placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+/* For older versions of Edge */
+:-ms-input-placeholder {
+    color: #999 !important;
+}
+
+/* For Internet Explorer */
+::-ms-input-placeholder {
+    color: #999 !important;
+}
+
+
+
+/* Navbar buttons styling */
+.navbar .nav-link,
+.navbar .btn,
+.navbar .dropdown-toggle {
+    position: relative !important;
+    overflow: hidden !important;
+    transition: color 0.3s ease, background-color 0.3s ease !important;
+    padding: 0.6rem 1rem !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    margin: 0 0.2rem !important;
+}
+
+/* Hover effect for navbar links */
+.navbar .nav-link:before,
+.navbar .btn:before,
+.navbar .dropdown-toggle:before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 3px !important;
+    background-color: #1c4392 !important;
+    transform: scaleX(0) !important;
+    transform-origin: right !important;
+    transition: transform 0.3s ease !important;
+    z-index: -1 !important;
+}
+
+.navbar .nav-link:hover:before,
+.navbar .btn:hover:before,
+.navbar .dropdown-toggle:hover:before {
+    transform: scaleX(1) !important;
+    transform-origin: left !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .btn:hover,
+.navbar .dropdown-toggle:hover {
+    color: #1c4392 !important;
+    background-color: rgba(28, 67, 146, 0.05) !important;
+}
+
+/* Main dropdown styling - Simplified */
+.dropdown-menu {
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    padding: 0.5rem !important;
+    margin-top: 5px !important;
+}
+
+/* Dropdown items styling */
+.dropdown-item, 
+.dropdown-menu .nav-link {
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    padding: 0.6rem 1rem !important;
+    margin: 0.2rem 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.dropdown-item:hover, 
+.dropdown-menu .nav-link:hover {
+    background-color: rgba(28, 67, 146, 0.1) !important;
+    transform: translateX(1px) !important;
+}
+
+/* Active state for navbar links */
+.navbar .nav-link.active,
+.navbar .btn.active,
+.navbar .dropdown-toggle.active {
+    color: #1c4392 !important;
+    font-weight: 600 !important;
+}
+
+.navbar .nav-link.active:before,
+.navbar .btn.active:before,
+.navbar .dropdown-toggle.active:before {
+    transform: scaleX(1) !important;
+}
+
+/* Main navbar brand/logo */
+.global_header a {
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.global_header a:hover h1 {
+    color: #1c4392 !important;
+    transform: scale(1.03) !important;
+}
+
+/* Ensuring proper z-index for dropdown interaction */
+.dropdown {
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Navbar toggle button styling for mobile */
+.navbar-toggler {
+    border: none !important;
+    padding: 0.5rem !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(28, 67, 146, 0.1) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(28, 67, 146, 0.2) !important;
+    outline: none !important;
+}
+
+/* Add dropdown arrow indicator */
+.navbar .dropdown-toggle::after {
+    margin-left: 0.5em !important;
+    transition: transform 0.2s ease !important;
+}
+
+.navbar .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg) !important;
+}
+
+/* Ripple effect - Simplified */
+.ripple-effect {
+    position: absolute !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: -50px !important;
+    margin-left: -50px !important;
+    animation: ripple 0.6s linear !important;
+    pointer-events: none !important;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+} 

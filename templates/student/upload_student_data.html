@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "/user/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+          <div class="card pb-5" style="border:none;">
+            
+            <h1 class="center" style="margin-bottom: -0%">Upload Student Data</h1>
+            
+            <div class="upload-section">
+
+              <!--
+              <form name="upload_csv_form" class="upload_form pb-4" enctype="multipart/form-data" style="border:none; border-bottom:1px solid silver;">
+                  <h3 class="center">Upload CSV</h3>
+                  <div class="form-group">
+                      <label for="csv-file">Select CSV File:</label><br>
+                      <input id="csv-file" type="file" name="file" class="tt-input" required />
+                  </div>
+                  <p class="error error--hidden"></p>
+                  <div class="d-flex flex-wrap gap-2">
+                      <input type="submit" value="Upload CSV" class="btn" />
+                  </div>
+              </form>
+               CSV Upload Form -->
+
+
+              <!-- XLSX Upload Form -->
+              <form name="upload_xls_form" class="upload_form" enctype="multipart/form-data">
+                  <h3 class="center">Upload Excel File</h3>
+                  
+                  <div class="alert alert-info">
+                    <h5>Excel File Format Requirements:</h5>
+                    <p>Please ensure your Excel file contains the following <strong>exact</strong> column names:</p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email (Uni)</th>
+                            <th>Student Number</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>John</td>
+                            <td>Smith</td>
+                            <td>j.smith@abdn.ac.uk</td>
+                            <td>12345678</td>
+                          </tr>
+                          <tr>
+                            <td>Jane</td>
+                            <td>Doe</td>
+                            <td>j.doe@abdn.ac.uk</td>
+                            <td>87654321</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p><strong>Important Notes:</strong></p>
+                    <ul>
+                      <li>All column names must be <strong>exactly as shown</strong>, including case and spacing</li>
+                      <li>Email addresses must end with @abdn.ac.uk</li>
+                      <li>Student ID must be 8 digits</li>
+                      <li>Student initial password will be set to their email address</li>
+                      <li><strong>Students with IDs already in the database will be skipped</strong> and not overwritten</li>
+                      <li>If all students in your file already exist, you'll receive a notification</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="xlsx-file">Select Excel File:</label><br>
+                      <input id="xlsx-file" type="file" name="file" class="form-control" accept=".xlsx,.xls" required />
+                  </div>
+                  <p class="error error--hidden"></p>
+                  <div class="d-flex flex-wrap gap-2">
+                      <input type="submit" value="Upload File" class="btn btn-primary" />
+                  </div>
+              </form>
+          </div>
+      
+            <script src="/static/student_upload/script.js"></script>
+      
+          </div>
+        </div>
+      </div>
+{% endblock content %}

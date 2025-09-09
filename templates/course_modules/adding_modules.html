@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "user/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+        <div class="card pb-5 " style="border:none ;border-bottom:1px solid silver;">
+            <h1 class="center">Add Module</h1>
+<form class="module_adding_form" name="module_adding_form">
+    <div class="form-group">
+        <div class="justify-content-start">
+            <label for="module_id">Module ID</label><br>
+            <input type="search"
+                   name="module_id"
+                   id="module_id"
+                   class="tt-input"
+                   autocomplete="on"
+                   spellcheck="false"
+                   dir="auto"
+                   style="position: relative; vertical-align: top;"
+                   required />
+        </div>
+
+        <div class="justify-content-start mt-3">
+            <label for="module_name">Module Name</label><br>
+            <input type="search"
+                   name="module_name"
+                   id="module_name"
+                   class="tt-input"
+                   autocomplete="on"
+                   spellcheck="false"
+                   dir="auto"
+                   style="position: relative; vertical-align: top;"
+                   required />
+        </div>
+
+        <div class="justify-content-start mt-3">
+            <label for="module_description">Module Description</label><br>
+            <input type="search"
+                   name="module_description"
+                   id="module_description"
+                   class="tt-input"
+                   autocomplete="on"
+                   spellcheck="false"
+                   dir="auto"
+                   style="position: relative; vertical-align: top;"
+                   required />
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <p class="error error--hidden"></p>
+
+        <div class="d-flex flex-wrap gap-2">
+            <input type="submit" value="Add Module" class="btn btn-primary" />
+
+            <button id="downloadExcelBtn" type="button" class="btn btn-small">
+                <i class="fas fa-download"></i> Download Excel
+            </button>
+        </div>
+    </div>
+</form>
+        </div>
+         <!-- Second Card: Table -->
+         <div class="card card-dynamic-width">
+            <div class="table-wrapper">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Module Name</th>
+                        <th>Module Description</th>
+                    </tr>
+                    </thead>
+                    <tbody id="module-table">
+                    </tbody>
+                </table>
+                <div class="pagination-container d-flex justify-content-between align-items-center" style="padding: 10px; background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+                    <div class="pagination-info">
+                        Showing <span id="start-index">1</span> to <span id="end-index">20</span> of <span id="total-count">0</span> entries
+                    </div>
+                    <div class="pagination justify-content-end">
+                        <button id="prev-page" class="btn btn-primary" style="margin-right: 10px;" disabled>Previous</button>
+                        <span id="current-page" class="mt-2">Page 1</span>
+                        <button id="next-page" class="btn btn-primary" style="margin-left: 10px;">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <script src="/static/adding_module/script.js"></script>
+    </div>
+{% endblock content %}

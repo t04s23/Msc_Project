@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "user/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+        <div class="card pb-5 " style="border:none;">
+            <h1 class="center">Add Employer</h1>
+<form class="employer_adding_form" name="employer_adding_form">
+    <div class="form-group">
+        <div class="justify-content-start">
+            <label for="company_name">Company Name</label><br>
+            <input type="search"
+                   name="company_name"
+                   id="company_name"
+                   class="tt-input"
+                   autocomplete="on"
+                   spellcheck="false"
+                   dir="auto"
+                   style="position: relative; vertical-align: top;"
+                   required />
+        </div>
+
+        <div class="justify-content-start mt-3">
+            <label for="email">Email</label><br>
+            <input type="search"
+                   name="email"
+                   id="email"
+                   class="tt-input"
+                   autocomplete="on"
+                   spellcheck="false"
+                   dir="auto"
+                   style="position: relative; vertical-align: top;"
+                   required />
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <p class="error error--hidden"></p>
+
+        <div class="d-flex flex-wrap gap-2">
+            <input type="submit" value="Add Employer" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+        </div>
+        <script src="/static/adding_employer/script.js"></script>
+    </div>
+{% endblock content %}

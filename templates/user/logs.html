@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "/user/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+        <div class="card" style="border:none ;">
+            <div class="container">
+                <h1 class="text">Logs</h1>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="logTable">
+                        <thead>
+                            <tr>
+                                <th>Message</th>
+                                <th>Event Type 
+                                    <span class="sort-arrow" data-column="1" data-order="asc" onclick="sortTable(1, this)">↑</span>
+                                </th>
+                                <th>Date Time 
+                                    <span class="sort-arrow" data-column="2" data-order="asc" onclick="sortTable(2, this)">↑</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-table">
+                        </tbody>
+                    </table>
+                    <div class="pagination-container d-flex justify-content-between align-items-center" style="padding: 10px; background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+                        <div class="pagination-info">
+                            Showing <span id="start-entry">1</span> to <span id="end-entry">20</span> of <span id="total-entries">0</span> entries
+                        </div>
+                        <div class="pagination-controls justify-content-end">
+                            <button id="prev-page" class="btn btn-primary" style="margin-right: 10px;" disabled>Previous</button>
+                            <span class="page-info"  class="mt-2">Page<span id="current-page">1</span></span>
+                            <button id="next-page" class="btn btn-primary" style="margin-left: 10px;">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .sort-arrow {
+            cursor: pointer;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        
+    </style>
+
+    <script src="/static/logs/script.js"></script>
+{% endblock content %}

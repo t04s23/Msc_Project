@@ -1,0 +1,75 @@
+{% include "navgbar.html" %}
+
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="container">
+        <div class="top_level">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            
+        
+        <div class="dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Search
+            </a>
+          
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="{{ url_for('search_opportunities') }}">Search Opportunities</a></li>
+              <li><a class="nav-link" href="{{ url_for('search_page') }}">Search Student</a></li>
+              <li><a class="nav-link" href="{{ url_for('employers_search_page') }}">Search Employers</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Add New
+            </a>
+          
+            <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{ url_for('add_skill') }}">Add Skill</a></li>
+                <li><a class="nav-link" href="{{ url_for('add_course') }}">Add Course</a></li>
+                <li><a class="nav-link" href="{{ url_for('add_course_module') }}">Add Module</a></li>
+                <li><a class="nav-link" href="{{ url_for('add_employer') }}">Add Employer</a></li>
+                <li><a class="nav-link" href="{{ url_for('upload_page') }}">Add Student XLSX</a></li>
+            </ul>
+          </div>
+
+
+          <div class="dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Process Control
+            </a>
+          
+            <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{ url_for('matching') }}">Matching</a></li>
+                <li><a class="nav-link" href="{{ url_for('deadline') }}">Change Deadline</a></li>
+            </ul>
+          </div>
+
+
+          <div class="dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin Tools
+            </a>
+          
+            <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{ url_for('logs') }}">System Logs</a></li>
+                <li><a class="nav-link" href="{{ url_for('problems') }}">Problems</a></li>
+            </ul>
+          </div>
+
+
+    </div>
+</nav>
+
+
+

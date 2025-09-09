@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg">
+
+
+    
+    <div class="container">
+    
+    <div class="global_header">
+        {% if user_type == "employer" %}
+        <a href="{{ url_for('employer_home') }}">
+            <h1>Placement System</h1>
+        </a>
+        {% else %}
+        <a href="{{ url_for('index') }}">
+            <h1>Placement System</h1>
+        </a>
+        {% endif %}
+
+</div>
+
+            <div class="dropdown">
+                <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if user_type == "admin" %}
+                    Hello, {{ session['user']['name'][0:5] }}
+                    {% elif user_type == "employer" %}
+                    Hello, {{ session['employer']['company_name'] }}
+                    {% elif user_type == "student" %}
+                    Hello, {{ session['student']['first_name'] }}
+                    {% else %}
+                    Hello, 
+                    Guest
+                    {% endif %}
+                </a>
+              
+                <ul class="dropdown-menu">
+                    {% if user_type == "admin" or user_type == "student" %}
+                    <li><a class="dropdown-item" href="{{ url_for('change_password') }}">Change Password</a>
+                    </li>
+                    {% endif %}
+                    {% if user_type == "admin" or user_type == "student" or user_type == "employer" %}
+                    <li>
+                        <a class="dropdown-item"  href="{{ url_for('help') }}">Help</a> 
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="{{ url_for('signout') }}">Sign Out</a>
+                    </li>
+                </ul>
+              </div>
+           
+              
+    </div>
+</nav>
+<style>
+
+.global_header{
+    transition: transform 0.3s ease;
+}
+
+.global_header:hover {
+        transform: scale(1.02);
+        }
+
+
+</style>

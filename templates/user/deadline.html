@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "user/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+            <div class="card" style="border:none;">
+                <h1 class="center">Update Deadlines</h1>
+                <form class="deadline_form" name="deadline_form">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="details_deadline">Details Deadline</label>
+                            <input type="date"
+                                   name="details_deadline"
+                                   class="field form-control"
+                                   id="details_deadline"
+                                   required
+                                   value="{{ details_deadline }}" />
+                        </div>
+    
+                        <div class="col-md-4">
+                            <label for="student_ranking_deadline">Student Ranking Deadline</label>
+                            <input type="date"
+                                   name="student_ranking_deadline"
+                                   class="field form-control"
+                                   id="student_ranking_deadline"
+                                   required
+                                   value="{{ student_ranking_deadline }}" />
+                        </div>
+    
+                        <div class="col-md-4">
+                            <label for="opportunities_ranking_deadline">Employers ranking deadline</label>
+                            <input type="date"
+                                   name="opportunities_ranking_deadline"
+                                   class="field form-control"
+                                   id="opportunities_ranking_deadline"
+                                   required
+                                   value="{{ opportunities_ranking_deadline }}" />
+                        </div>
+                    </div>
+    
+                    <p class="error error--hidden"></p>
+                    <div class="text-center mt-3">
+                        <input type="submit" value="Update Deadline" class="btn" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/static/deadline/script.js"></script>
+    </div>
+{% endblock content %}

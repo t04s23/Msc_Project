@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Placement System | The University of Aberdeen</title>
+        <link rel="icon"
+              href="https://www.abdn.ac.uk/abdn-design-system/releases/2.1.0/dist/images/icons/favicon-32x32.png"
+              type="image/x-icon" />
+        <meta name="description"
+              content="Placement Matching System - Enhance your learning with our platform." />
+        <meta name="keywords"
+              content="skills, learning, education, Placement Matching System, platform, career" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        
+        <script rel="preconnect"
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous"></script>
+        <script rel="preconnect"
+                src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script rel="preconnect"
+                src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+                integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk="
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+              integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg="
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='form-styles.css') }}" />
+        <script rel="preconnect" src="{{ url_for('static', filename='script.js') }}"></script>
+
+            <meta name="description" content="The University of Aberdeen, Scotland, is a UK Top 20 and World Top 200 University with outstanding levels of student satisfaction.">
+            <meta name="google-site-verification" content="G1dOuHFsSzDquCJUBokcPb6Rmcj2wlR5mHc78WphvBM">
+            <meta name="facebook-domain-verification" content="ax2b986uqsy6kjrs1m5kk3xdvedb5y">
+            
+              <!-- Pre connects -->
+            <link rel="preconnect" href="https://abdn-search.funnelback.squiz.cloud">
+            <link rel="preconnect" href="https://cc.cdn.civiccomputing.com">
+            <link rel="preconnect" href="https://code.jquery.com">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/manifest.json">
+    <link rel="mask-icon" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-config" content="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/css/abdn-design-system-site.css">
+    <!-- https://abdn-search.funnelback.squiz.cloud/s/resources-global/css/funnelback.autocompletion-2.6.0.css -->
+    <style>
+    .twitter-typeahead {display: table-cell !important;}.tt-menu {background-clip: padding-box;background-color: #ffffff;border: 1px solid rgba(0, 0, 0, 0.15);border-radius: 4px;box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);font-size: 14px;padding-bottom: 5px;width: 100%;}.tt-menu .tt-suggestion {clear: both;color: #333;cursor: pointer;display: block;font-weight: normal;line-height: 1.42857;padding: 3px 10px;text-align: left;}.tt-menu .tt-suggestion:hover, .tt-menu .tt-cursor {background-color: #428bca;color: #fff;text-decoration: none;}.tt-menu .tt-category, .tt-menu .tt-group {background-color: #f5f5f5;border-bottom: 1px solid #ddd;border-top: 1px solid #ddd;}.tt-menu .tt-category {margin: 3px 0;padding: 7px 5px;}.tt-menu .tt-dataset:first-child .tt-category, .tt-horizontal .tt-dataset .tt-category {border-top: none;border-top-left-radius: 4px;border-top-right-radius: 4px;margin-top: 0;}.tt-menu .tt-group {padding: 3px 5px;text-align: center;}.tt-menu .tt-group:first-of-type {border-top: none;}.tt-horizontal {width: 100%;}.tt-horizontal .tt-dataset {float: left;width: 100%;}.tt-scrollable {overflow-y: auto;max-height: 460px;}.tt-hint {color: #ccc !important;}@media (max-width: 414px) {.tt-horizontal .tt-dataset {width: 100% !important;}}
+    </style>
+    <!--[if lte IE 8]>
+        <script>
+            var els = ['article', 'aside', 'details', 'figcaption', 'figure', 'footer', 'header', 'hgroup', 'main', 'nav', 'section', 'summary', 'picture'];
+            for (var i = 0; i < els.length; i ++) {
+                document.createElement(els[i]);
+            }
+        </script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.abdn.ac.uk/abdn-design-system/releases/2.2.0/dist/js/abdn-design-system-site.js" defer=""></script>
+    <script>
+        var global_base_url = '/global/';
+    </script>
+           
+            <!--/Homepage only homepage.css-->
+            <style>#prospectus_results_container.js_processing{opacity:.5;-webkit-transition:.2s opacity;transition:.2s opacity}#prospectus_results_container{margin-bottom:3em}.pagination_legend a{color:#1c4392}.prospectus_results_table{border:1px solid #e5e5e5;max-width:100%;width:100%}.prospectus_results_table th{border-bottom-width:2px;border-top:0;vertical-align:bottom;text-align:left}.prospectus_results_table th a{border-bottom:0;display:block;position:relative;text-align:left}.prospectus_results_table th a i.fa{color:#999;position:absolute;right:.5em;top:.25em}.prospectus_results_table th a i.fa.active_sorting{color:#057dbc}.prospectus_results_table td{vertical-align:top}.prospectus_results_table td,.prospectus_results_table th{border:1px solid #e5e5e5;padding:.5em}@media screen and (max-width:580px){.prospectus_results_table td:nth-child(3),.prospectus_results_table th:nth-child(3){display:none}}@media screen and (max-width:480px){.prospectus_results_table td:nth-child(2),.prospectus_results_table th:nth-child(2){display:none}}.detailed_result_container{border:1px solid #dfdfdf;margin-bottom:2em;padding:1em}.detailed_result_container,.detailed_result_container *{-webkit-box-sizing:border-box;box-sizing:border-box}.detailed_result_content{padding:0 1.5em 0 0;vertical-align:top}.detailed_result_title{font-size:1.5em;margin:0}.detailed_result_facts_title{color:#707070;font-size:1.25em;margin-bottom:1em;margin-top:0;text-align:center}.detailed_result_facts_title:after{border-bottom:2px solid #f4c900;content:' ';display:block;margin:0 auto 1.5em;padding:.5em 0 0;width:4em}.detailed_result_subtitle{display:block;margin-bottom:1em}.detailed_result_facts{background-color:#f5f5f5;color:#333;padding:1.5em}.detailed_result_facts .icon{font-weight:400;margin-right:5px}.detailed_result_facts table{line-height:1.6;text-align:left}.detailed_result_facts th{float:left;font-weight:700;opacity:.69;text-transform:uppercase;white-space:nowrap;width:60%}.detailed_result_facts td,.detailed_result_facts th{padding:.25em .4em}.detailed_result_facts a{color:#1c4392}.detailed_result_container{padding:1em}.detailed_result_button{background-color:#1c4392;border-bottom:0;border-radius:5px;color:#fff;display:inline-block;margin-bottom:1em;padding:.5em 1em}.detailed_result_button:active,.detailed_result_button:hover{background-color:#003c5f;border-bottom:0;text-decoration:none}.detailed_result_button .icon{font-size:.8em}@media screen and (min-width:780px){.detailed_result_container{display:table;width:100%}.detailed_result{display:table-row}.detailed_result>*{display:table-cell}.detailed_result_content{padding-bottom:3em;position:relative;width:60%}.detailed_result_facts{font-size:.9em;width:40%}.detailed_result_button{bottom:0;left:0;margin-bottom:0;position:absolute}}.pagination a.disabled{cursor:not-allowed;opacity:.85}.view_type_toolbar{font-size:.8em;margin-bottom:1em}.view_type_toolbar:after{clear:both;content:'';display:block}.view_type_button{border:1px solid #707070;color:#707070;display:inline-block;float:left;padding:.5em 1em}.view_type_button:first-child{border-radius:5px 0 0 5px}.view_type_button:last-child{border-radius:0 5px 5px 0}.view_type_button.view_type_button_active{background-color:#707070;border-color:#707070;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.2);box-shadow:inset 0 3px 5px rgba(0,0,0,.2);color:#fff}.view_type_button:active,.view_type_button:hover{text-decoration:none}.prospectus_search{background-color:#1f3165;max-width:100%;padding:1em}.prospectus_search fieldset{margin:0;padding:0;border:0}.prospectus_search label{color:#fff;display:block;font-size:1.3em;font-weight:400;margin:0 0 1em 0}.prospectus_search_container{position:relative}.prospectus_remove_tokens{background:0 0;border:0;bottom:0;color:#ccc;display:none;font-size:2em;position:absolute;right:0;top:0;width:1.5em;z-index:1}.prospectus_remove_tokens.js_active{display:block}#prospectus_study_type{-moz-appearance:none;-webkit-appearance:none;-webkit-background-clip:padding-box;appearance:none;background-clip:padding-box;background-color:#f4c900;border:0;border-radius:0;-webkit-box-sizing:border-box;box-sizing:border-box;color:#444;cursor:pointer;display:inline-block;font-size:1em;height:2.77em;padding:.7em 2em .7em .5em;-webkit-transition:background-color .2s ease-in-out;transition:background-color .2s ease-in-out;width:100%}#prospectus_study_type::-ms-expand{display:none}.prospectus_input_container_select{background-color:#f4c900}.prospectus_input_container_select_wrapper{-webkit-box-sizing:border-box;box-sizing:border-box;margin-bottom:1em;overflow:hidden;position:relative;word-break:break-all}.prospectus_input_container_select_wrapper:after{bottom:0;color:#444;content:"\f078";font-family:FontAwesome;height:1em;padding:.9em .5em 1em;pointer-events:none;position:absolute;right:0;text-align:center;top:0;z-index:1}#prospectus_study_type:focus,#prospectus_study_type:hover,.prospectus_search_button:focus,.prospectus_search_button:hover{background-color:#ffd263}#prospectus_q{-moz-appearance:none;-webkit-appearance:none;-webkit-appearance:none;-webkit-border-radius:0;appearance:none;border:0;border-radius:0;-webkit-box-sizing:border-box;box-sizing:border-box;color:#444;display:block;height:2.77em;padding:.7em;width:100%}.prospectus_search_scroller{-webkit-box-sizing:border-box;box-sizing:border-box;display:block}.prospectus_search_scroller .twitter-typeahead{display:block!important;position:relative}.prospectus_search_scroller .tt-hint{border:0;bottom:0;-webkit-box-sizing:border-box;box-sizing:border-box;color:#666!important;padding:.7em;right:0}.prospectus_search_scroller .tt-menu{border-radius:0 0 4px 4px}.prospectus_search_scroller .tt-menu .tt-suggestion{font-size:1.125em;padding-bottom:5px;padding-top:5px}.prospectus_search_scroller .tt-menu .tt-cursor,.prospectus_search_scroller .tt-menu .tt-suggestion:hover{background-color:#efefef;color:#333}.prospectus_search_button{background-color:#f4c900;border:0;color:#444;display:inline-block;height:2.77em;padding:.7em 1em;-webkit-transition:background-color .2s ease-in-out;transition:background-color .2s ease-in-out}.prospectus_search_button span{display:none}.prospectus_search_button:before{content:'\f002';display:inline;font-family:FontAwesome}.prospectus_search_wrapper{background-color:#fff;border-collapse:separate;display:table;width:100%}.prospectus_search_wrapper>span{background-color:#fff;display:table-cell;vertical-align:top}.prospectus_search_wrapper .prospectus_button_container{background-color:#f4c900;width:1%}@media screen and (min-width:480px){.prospectus_input_container_select_wrapper{margin-bottom:0}.prospectus_input_wrapper{display:table;width:100%}.prospectus_input_container{border-collapse:separate;display:table-cell;vertical-align:top;width:auto}.prospectus_search_wrapper_container{background-color:#fff;display:table-cell;vertical-align:top;width:100%}#prospectus_study_type{border:0;display:block}.prospectus_search_button{display:block}#prospectus_q{border:0}#prospectus_study_type{border:0;width:auto}}@media screen and (min-width:700px){.prospectus_search{padding:2em}.prospectus_search_button span{display:inline;margin-left:.5em}.prospectus_button_container{white-space:nowrap}}@media screen and (min-width:780px){.prospectus_search{color:#fff}}.prospectus_search .hide{display:none}.prospectus_search .capitalise{text-transform:capitalize}.full_width .abdn_row.abdn_row_prospectus{padding:1em 0}</style>        
+    <link rel="stylesheet" href="https://use.typekit.net/gas2hii.css">
+    <link rel="preload" as="image" media="(min-width: 1200px)" href="https://www.abdn.ac.uk/img/2400x1020/media/site/home/Aberdeen-GS-2400x1020.jpg">
+    <link rel="preload" as="image" media="(min-width: 600px) and (max-width: 1199px)" href="https://www.abdn.ac.uk/img/1200x510/media/site/home/Aberdeen-GS-2400x1020.jpg">
+    <link rel="preload" as="image" media="(min-width: 300px) and (max-width: 599px)" href="https://www.abdn.ac.uk/img/600x214/media/site/home/Aberdeen-GS-2400x1020.jpg">
+    <link rel="preload" as="image" media="(max-width: 299px)" href="https://www.abdn.ac.uk/img/300x107/media/site/home/Aberdeen-GS-2400x1020.jpg">
+
+    <link rel="preload" as="image" media="(min-width: 1200px)" href="https://www.abdn.ac.uk/img/2400x1020/media/site/home/SDRL-28homepage.jpg">
+    <link rel="preload" as="image" media="(min-width: 600px) and (max-width: 1199px)" href="https://www.abdn.ac.uk/img/1200x510/media/site/home/SDRL-28homepage.jpg">
+    <link rel="preload" as="image" media="(min-width: 300px) and (max-width: 599px)" href="https://www.abdn.ac.uk/img/600x214/media/site/home/SDRL-28homepage.jpg">
+    <link rel="preload" as="image" media="(max-width: 299px)" href="https://www.abdn.ac.uk/img/300x107/media/site/home/SDRL-28homepage.jpg">
+
+    <link rel="preload" as="image" media="(min-width: 1200px)" href="https://www.abdn.ac.uk/img/2400x1020/media/university-of-aberdeen/content-assets/images/research-homepage-slide.jpg">
+    <link rel="preload" as="image" media="(min-width: 600px) and (max-width: 1199px)" href="https://www.abdn.ac.uk/img/1200x510/media/university-of-aberdeen/content-assets/images/research-homepage-slide.jpg">
+    <link rel="preload" as="image" media="(min-width: 300px) and (max-width: 599px)" href="https://www.abdn.ac.uk/img/600x214/media/university-of-aberdeen/content-assets/images/research-homepage-slide.jpg">
+    <link rel="preload" as="image" media="(max-width: 299px)" href="https://www.abdn.ac.uk/img/300x107/media/university-of-aberdeen/content-assets/images/research-homepage-slide.jpg">
+
+    <link rel="preload" as="image" media="(min-width: 1200px)" href="https://www.abdn.ac.uk/img/2400x1020/media/site/home/About-Clearing-2400x1020.jpg">
+    <link rel="preload" as="image" media="(min-width: 600px) and (max-width: 1199px)" href="https://www.abdn.ac.uk/img/1200x510/media/site/home/About-Clearing-2400x1020.jpg">
+    <link rel="preload" as="image" media="(min-width: 300px) and (max-width: 599px)" href="https://www.abdn.ac.uk/img/600x214/media/site/home/About-Clearing-2400x1020.jpg">
+    <link rel="preload" as="image" media="(max-width: 299px)" href="https://www.abdn.ac.uk/img/2400x1020/media/site/home/About-Clearing-2400x1020.jpg">
+            
+    <script>
+        var global_base_url = '/global//';
+    </script>
+
+
+
+
+
+
+
+    </head>
+    <body>
+           
+        <main class="content">{% block content %}{% endblock %}</main>
+        
+        <script src="{{ url_for('static', filename='navbar-effects.js') }}"></script>
+        <script src="{{ url_for('static', filename='dropdown-fix.js') }}"></script>
+    </body>
+    <footer>
+        <div class="container">
+            <div class="footer_wrapper">
+                <div class="right_column">
+                    <ul class="footer_utility_links">
+                        <li><a href="https://www.abdn.ac.uk/students/">For Students</a></li>
+                        <li><a href="https://www.abdn.ac.uk/staffnet/">For Staff</a></li>
+                    
+                    </ul>
+                    
+                                    <div class="global_social">
+                            <h2>Connect With Us</h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.youtube.com/user/uniofaberdeen" class="fab fa-youtube" title="YouTube" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">YouTube</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/aberdeenuni/" class="fab fa-twitter" title="Twitter" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">Twitter</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/universityofaberdeen/" class="fab fa-facebook-square" title="Facebook" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">Facebook</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://pinterest.com/aberdeenuni/" class="fab fa-pinterest" title="Pinterest" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">Pinterest</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/uniofaberdeen/" class="fab fa-instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">Instagram</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/school/13849" class="fab fa-linkedin" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">LinkedIn</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.weibo.com/abdn" class="fab fa-weibo" title="Weibo" target="_blank" rel="noopener noreferrer">
+                                        <i class="offscreen">Weibo</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left_column">
+                        <div class="global_contact" itemscope="" itemtype="https://schema.org/CollegeOrUniversity">
+                            <h2 class="offscreen">Contact Us</h2>
+                            <a href="/" class="uni_logo_footer">
+                                                    <img src="https://www.abdn.ac.uk/abdn-design-system/releases/2.1.0/dist/images/layout/UoA_Landscape_Logo_RGB_REVERSE_2018.png" srcset="https://www.abdn.ac.uk/abdn-design-system/releases/2.1.0/dist/images/layout/UoA_Landscape_Logo_CMYK_REVERSE_2018.svg" alt="University of Aberdeen" loading="lazy" width="300" height="42">
+                                                      </a>
+                            <dl>
+                                <dt>Address</dt>
+                                <dd class="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+                                    <p><span itemprop="name">University of Aberdeen</span><br><span itemprop="streetAddress">King's College</span>,<br><span itemprop="addressLocality">Aberdeen</span>,<br><span itemprop="postalCode">AB24 3FX</span></p>
+                                </dd>
+                                <dt>Phone</dt>
+                                <dd itemprop="telephone" class="phone">
+                                    Tel: <a href="tel:+441224272000">+44 (0)1224 272000</a>
+                                </dd>
+                            </dl>
+                            <div class="where_are_we utility">
+                                  <ul>
+        <li><a href="https://www.abdn.ac.uk/about/contact/">Contacts</a></li>
+        <li><a href="https://www.abdn.ac.uk/about/our-website/a-to-z/">A to Z</a></li>
+        <li><a href="https://www.abdn.ac.uk/about/campus/maps/">Maps and Directions</a></li>
+        <li><a href="https://www.abdn.ac.uk/people/">Staff Directory</a></li>
+        </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_of_page_align">
+                    <a href="#top" class="top_of_page">Top of Page</a>
+                </div>
+            </div>
+            <div class="dark">
+                <div class="container">
+                    <div class="legals utility">
+                        <ul>
+        <li><a href="https://www.abdn.ac.uk/about/our-website/terms-and-conditions-of-use/">Terms and Conditions of Use</a></li>
+                            <li><a href="https://www.abdn.ac.uk/about/your-privacy/">Your Privacy</a></li>
+         
+                            <li><a href="https://www.abdn.ac.uk/about/our-website/accessibility/">Accessibility</a></li>
+         
+                            <li><a href="https://www.abdn.ac.uk/about/our-website/cookies/">Cookies</a></li>
+         
+                            <li><a href="https://www.abdn.ac.uk/about/our-website/slavery--human-trafficking-statement/">Slavery &amp; Human Trafficking Statement</a></li>
+         
+                          <li><a href="https://www.abdn.ac.uk/staffnet/governance/legal-and-compliance/foi-scotland/">Freedom of Information</a></li>
+        
+                        </ul>
+                    </div>
+                    <div class="charity">
+                        <p>The University of Aberdeen is a charity registered in Scotland, No.SC013683</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+    
+    <script src="https://abdn-search.funnelback.squiz.cloud/s/resources-global/js/typeahead.bundle-0.11.1.min.js" defer=""></script>
+    <script src="https://abdn-search.funnelback.squiz.cloud/s/resources-global/js/funnelback.autocompletion-2.6.0.js" defer=""></script>
+    <script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js" defer=""></script>
+    <script src="/global//cookies/js/cookie-consent.js" defer=""></script>
+    <script src="https://www.abdn.ac.uk/apps/prospectus-search/assets/scripts/prospectus_search.1727431749.js" defer=""></script>
+      
+
+

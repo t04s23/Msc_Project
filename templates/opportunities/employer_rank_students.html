@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "/employers/navbar.html" %}
+    <div class="card-wrapper">
+        <div class="container">
+            <div class="row" style="margin-top: 12px;">
+                <div class="col-12">
+                    <h2>Rank Students</h2>
+                    <p>
+                        Rank the students below in order of preference. You can only rank each student once. 1 is most
+                        preferable, {{ students|length }} is least preferable. Do at least 5 or as many as you can.
+                    </p>
+                    <div class="deadline-info">
+                        <p class="d-none" id="opp_id">{{ opportunity_id }}</p>
+                    </div>
+                </div>
+
+                {% for student in students %}
+    <div class="col-md-6 col-lg-4 mb-4" style="margin-top: 15px;">
+        <div class="student-item card h-100 p-2 bg-light">
+            <div class="card-body">
+                <p class="student-id d-none">{{ student._id }}</p>
+                <p class="student-comment"><strong>Comment:</strong> {{ student.comments }}</p>
+                <p class="student-has_car"><strong>Has Car:</strong> {{ student.has_car }}</p>
+                <p class="student-course"><strong>Course:</strong> {{ student.course }}: {{ get_course_name(student.course) }}</p>
+
+                <p><strong>Modules:</strong></p>
+                <ul class="student-modules">
+                    {% for module in student.modules %}
+                        <li>{{ module }}: {{ get_module_name(module) }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><strong>Skills:</strong></p>
+                <ul class="student-skills">
+                    {% for skill in student.skills %}
+                        <li>{{ get_skill_name(skill) }}</li>
+                    {% endfor %}
+                </ul>
+
+                <label for="rank-{{ student._id }}">Rank:</label>
+                <select id="rank-{{ student._id }}"
+                        name="rank-{{ student._id }}"
+                        class="student-rank form-select">
+                    <option value="">Select rank</option>
+                    {% for i in range(1, students|length + 1) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+                <div class="text-center mt-5 mb-3">
+                    <button type="button" class="btn btn-primary" id="submit-students">
+                        Submit
+                    </button>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const rankSelects = document.querySelectorAll('.student-rank');
+
+                        rankSelects.forEach(select => {
+                            select.addEventListener('change', function () {
+                                const selectedValue = this.value;
+
+                                rankSelects.forEach(otherSelect => {
+                                    if (otherSelect !== this && otherSelect.value === selectedValue) {
+                                        this.value = '';
+                                        alert('You can only rank each student once');
+                                    }
+                                });
+                            });
+                        });
+                    });
+                </script>
+
+                <script src="/static/employers_rank_students/script.js"></script>
+
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- card-wrapper -->
+{% endblock content %}

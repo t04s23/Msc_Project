@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "/user/navbar.html" %}
+
+<div class="card-wrapper card-dynamic-width">
+    <div class="container">
+
+        <!-- Search Form Card -->
+        <div class="card search-card pb-5" style="border: none; border-bottom: 1px solid silver;">
+            <h1 class="center">Search Students</h1>
+            <form id="searchForm">
+                <div class="form-group">
+
+                    <!-- First Name -->
+                    <div>
+                        <label for="first_name">First Name</label><br>
+                        <input type="search" id="first_name" name="first_name" class="tt-input" autocomplete="on" spellcheck="false" />
+                    </div>
+
+                    <!-- Last Name -->
+                    <div>
+                        <label for="last_name">Last Name</label><br>
+                        <input type="search" id="last_name" name="last_name" class="tt-input" autocomplete="on" spellcheck="false" />
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email">Email</label><br>
+                        <input type="search" id="email" name="email" class="tt-input" autocomplete="on" spellcheck="false" />
+                    </div>
+
+                    <!-- Student Number -->
+                    <div>
+                        <label for="student_id">Student Number</label><br>
+                        <input type="search" id="student_id" name="student_id" class="tt-input" autocomplete="on" spellcheck="false" />
+                    </div>
+
+                    <!-- Course Dropdown -->
+                    <div>
+                        <label for="course">Course</label><br>
+                        <select id="course" name="course" class="tt-input">
+                            <option value="">Select Course</option>
+                            {% for course in courses %}
+                                <option value="{{ course.course_id }}">{{ course.course_id }}: {{ course.course_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Skills Dropdown -->
+                    <div>
+                        <label for="skills">Skills</label><br>
+                        <select id="skills" name="skills" class="field">
+                            <option value="">Select Skills</option>
+                            {% for skill in skills %}
+                                <option value="{{ skill._id }}">{{ skill.skill_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <p class="error error--hidden"></p>
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+        <!-- Students Table Card -->
+        <div class="card card-dynamic-width" style="border: none;">
+            <h1 class="center">Students</h1>
+            <div class="table-wrapper">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Student Number</th>
+                            <th>Course</th>
+                            <th>Skill</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table">
+                        <!-- Filled dynamically via JS -->
+                    </tbody>
+                </table>
+
+                <!-- Buttons -->
+                <div class="button-group d-flex justify-content-center mb-3">
+                    <button id="downloadExcelBtn" class="btn btn-small">
+                        <i class="fas fa-download"></i> Download as Excel
+                    </button>
+                    <button id="deleteAllStudentsBtn" class="btn btn-danger ms-2">
+                        <i class="fas fa-trash"></i> Delete All Students
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/static/search_student/script.js"></script>
+{% endblock content %}

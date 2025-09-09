@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "/user/navbar.html" %}
+    <div class="container">
+    <div class="alert alert-danger mt-5 text-center">
+        <p>{{ data }}</p>
+    </div>
+        </div>
+
+        <div class="button-group d-flex justify-content-center mb-3">
+            <button class="btn btn-primary"
+            onclick='window.location.href="{{ referrer }}"'>Back</button>
+        </div>
+{% endblock content %}

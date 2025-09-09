@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card-wrapper">
+        <div class="card login-card">
+            <h1 class="center">Employer Log In</h1>
+            <form class="login_form" name="login_form">
+                <input type="email" name="email" class="field" placeholder="Email" required />
+                <p class="error error--hidden"></p>
+                <input type="submit" value="Log In" class="btn" />
+            </form>
+            <p class="center">
+                Are you a student?
+                <a href="{{ url_for('login_student') }}">Student Login</a>
+            </p>
+            <p class="center">
+                Are you part of the placement team?
+                <a href="{{ url_for('login') }}">Login</a>
+            </p>
+        </div>
+        <!-- Modal for OTP -->
+        <div id="otpModal" class="modal">
+            <div class="modal-content">
+                <p>Enter the OTP sent to your email:</p>
+                <input type="text" id="otpInput" class="field" />
+                <p class="error error--hidden otp_error"></p>
+                <br>
+                <br>
+                <button onclick="submitOtp()" class="login-btn">Submit</button>
+                <br>
+                <button onclick="cancelOtp()" class="login-btn">Cancel</button>
+            </div>
+        </div>
+        <script src="/static/employer_login/script.js"></script>
+    </div>
+    <style>
+        .error {
+            color: #333;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .error--hidden {
+            display: none;
+        }
+        .otp_error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+{% endblock content %}

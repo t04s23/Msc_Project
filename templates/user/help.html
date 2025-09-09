@@ -1,0 +1,571 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user_type == 'admin' %}
+{% include "/user/navbar.html" %}
+{% else %}
+{% include "navgbar.html" %}
+{% endif%}
+<div class="container">
+    
+    {% if user_type == "admin" %}
+    
+    
+
+<h1 class="mt-4">Placement Team (Admins)</h1>
+<p>This section provides detailed guidance for the placement team (admin users) on how to use the system effectively. Admins are responsible for managing platform data, overseeing user accounts, handling deadlines, and running the placement matching process.</p>
+
+<div class="accordion accordion-flush" id="studentsManualAccordion">
+
+    <!-- 1. Login Process -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+            1. Logging In
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#studentsManualAccordion">
+        <div class="accordion-body bg-light">
+            <ul>
+                <li>Admins can access the system through the Unified Login Portal by selecting the option <strong>"Placement Team"</strong>.</li>
+                <li>Use preset admin credentials (admin email and password created by the developers).</li>
+                <li>Passwords are hidden by default, but a "Show Password" button is available.</li>
+              </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        2. Navigation Bar
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>The navigation bar provides access to multiple sections. Clicking each main menu reveals options for system management.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        3. Search Option
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <h4>3.1 Search Opportunities</h4>
+<ul>
+  <li>View all added opportunities.</li>
+  <li>Filter by title or company name.</li>
+  <li>Edit (all fields except ID), Delete, Download as Excel, Delete All Opportunities.</li>
+</ul>
+
+<h4>3.2 Search Students</h4>
+<ul>
+  <li>Filter using First Name, Last Name, Skills, Course, Module, etc.</li>
+  <li>Edit (First Name, Last Name, Student ID, Email), Delete, Download as Excel, Delete All Students.</li>
+</ul>
+
+<h4>3.3 Search Employers</h4>
+<ul>
+  <li>Search by company name or view all registered employers.</li>
+  <li>Fields shown: Company Name, Email, Edit, Delete, Download as Excel, Delete All Employers.</li>
+</ul>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        4. Add New Function
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <h4>4.1 Add Skill</h4>
+<ul>
+  <li>Enter Skill Name and Description.</li>
+  <li>Edit or Delete existing skills listed below the form.</li>
+</ul>
+
+<h4>4.2 Add Course</h4>
+<ul>
+  <li>Fields: Course ID, Course Name, Description (from university website).</li>
+  <li>Listed in a paginated table.</li>
+</ul>
+
+<h4>4.3 Add Module</h4>
+<ul>
+  <li>Fields: Module ID, Module Name, Description.</li>
+  <li>Listed in a paginated table.</li>
+</ul>
+
+<h4>4.4 Add Employer</h4>
+<ul>
+  <li>Fields: Company Name, Email.</li>
+  <li>Employers use OTP-based login once added.</li>
+</ul>
+
+<h4>4.5 Add Students via Excel</h4>
+<ul>
+  <li>Use the provided .xlsx template with fields:
+    <ul>
+      <li>First Name</li>
+      <li>Last Name</li>
+      <li>Student ID</li>
+      <li>Email</li>
+    </ul>
+  </li>
+  <li>Upload the file to register students.</li>
+</ul>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        5. Deadline Management
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Located under <strong>Process Control</strong>, the <em>Update Deadlines</em> section allows admins to set three deadlines:</p>
+<ol>
+  <li>Details Deadline – Profile updates</li>
+  <li>Student Ranking Deadline – Rank opportunities</li>
+  <li>Employer Ranking Deadline – Rank students</li>
+</ol>
+<p><strong>Note:</strong> Deadlines must follow the correct order; otherwise, matching will not function correctly.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        6. Matching Process
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Also under <strong>Process Control</strong>. Available only after all deadlines.</p>
+
+<h4>Matching Section</h4>
+<ul>
+  <li>Displays matched students and opportunities.</li>
+  <li>Options:
+    <ul>
+      <li>Send Email All</li>
+      <li>Send Individually – With contact info</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Unmatched Section</h4>
+<ul>
+  <li>Shows students who were not matched due to:
+    <ul>
+      <li>No ranking</li>
+      <li>Invalid preferences</li>
+      <li>No space in selected opportunities</li>
+    </ul>
+  </li>
+  <li>Option to Delete – Removes them from the system.</li>
+</ul>
+        </div>
+    </div>
+  </div>
+
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        7. Logs
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Tracks key admin activities:</p>
+<ul>
+  <li>Deadline changes</li>
+  <li>Skills, Courses, Modules edits</li>
+  <li>Opportunity modifications</li>
+</ul>
+<p>Each entry includes: Event Type, Description, Date & Time Stamp.</p>
+        </div>
+    </div>
+  </div>
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        8. Problems Section
+      </button>
+    </h2>
+    <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <ul>
+            <li>Lists reported issues from students or employers.</li>
+            <li>Examples: Missed deadline, Forgot to update details.</li>
+            <li>Each record shows user type and email.</li>
+          </ul>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        9. Logout and Change Password
+      </button>
+    </h2>
+    <div id="collapseNine" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light" style="border-bottom: 1px solid lightgrey;">
+        <ul>
+            <li><strong>Logout:</strong> Ends session securely.</li>
+            <li><strong>Change Password:</strong>
+              <ul>
+                <li>Requires current password.</li>
+                <li>New password must differ from the old one.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="button-group mb-3 d-flex justify-content-center">
+    <a href="javascript:history.back()" class="btn">Go Back</a>
+</div>
+
+{% elif user_type == "employer" %}
+
+   
+
+<h1 class="mt-4">Employers Manual</h1>
+<p>This manual is intended to guide employers in using the Placement Matching System effectively, from logging in, managing opportunities, to ranking students during the matching process. Access is time-sensitive and governed by system deadlines.</p>
+
+
+<div class="accordion accordion-flush" id="studentsManualAccordion">
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        1. Login Process
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Employers can access the system only if they are pre-registered by the administrator. At login, they must enter their registered email address into the unified login portal by selecting the <strong>Employer</strong> login option.</p>
+        <p>If the email is not recognized by the system, an error will appear, and they’ll be prompted to contact the placement administrator for registration. Once a valid registered email is entered, the system sends a One-Time Password (OTP) to that email address.</p>
+        <p>Employers must enter this OTP in the popup window to successfully complete the login process. This extra verification step ensures a secure login experience every time.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        2. Managing and Viewing Opportunities
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Once logged in, employers can view the opportunities they have previously submitted by selecting the <strong>“Search Your Opportunities”</strong> option in the navigation.</p>
+        <p>This section displays a list of all placement opportunities associated with the employer's account. Employers can search for specific opportunities using titles to quickly find what they’re looking for.</p>
+        <p>Additionally, the system provides a <strong>“Download as Excel”</strong> button that allows employers to export the entire list of their listed opportunities in spreadsheet format.</p>
+        <p>If needed, employers can also remove all their opportunities by clicking the <strong>“Delete All Opportunities”</strong> button. This action will permanently delete all submitted opportunities from the database, so it should be used with extreme caution.</p>
+        </div>
+    </div>
+  </div>
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        3. Deadline-Based Restrictions
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light" style="border-bottom: 1px solid lightgrey;">
+        <p>The employer portal is also governed by deadline phases, and the availability of certain features will depend on the current deadline window.</p>
+
+        <h3>3.1 Adding or Updating Opportunities</h3>
+        <p>Employers are allowed to add or update opportunities only until the end of the details deadline phase. Once this deadline has passed, they won’t be able to make any further edits or submit new opportunities.</p>
+        <p>When adding a new opportunity, the Opportunity ID is automatically generated by the system and cannot be edited. Employers can input the following information:</p>
+        <ul>
+        <li>Title and description of the placement</li>
+        <li>Course requirement (selecting which course is needed for the role)</li>
+        <li>Placement URL (can be a company page or more details about the opportunity)</li>
+        <li>Location of the placement</li>
+        <li>Number of spots available</li>
+        <li>Duration of the placement</li>
+        <li>Required modules (students must have studied these to qualify)</li>
+        </ul>
+        <p>All these fields can also be modified (except ID) if the employer is still within the allowed update period.</p>
+
+        <h3>3.2 Ranking Students for Opportunities</h3>
+        <p>Employers can only rank students once the student ranking deadline has ended and the employer ranking deadline is currently active. Until that time, the ranking buttons for each opportunity will remain disabled.</p>
+        <p>Once ranking is enabled, employers can click the ranking button for a specific opportunity. The system will display a list of students who have expressed interest in that opportunity by ranking it earlier. Student names and personal information are hidden, maintaining fairness and impartiality in the selection process.</p>
+        <p>Employers must assign unique ranks to each student; no two students can have the same ranking for a single opportunity. After assigning all rankings, employers can then submit their preferences.</p>
+
+        </div>
+    </div>
+  </div>
+</div>
+  <br>
+
+  <div class="button-group mb-3 d-flex justify-content-center">
+    <a href="javascript:history.back()" class="btn">Go Back</a>
+</div>
+
+ 
+    {% elif user_type == "student" %}
+
+<h1 class="mt-4">Students Manual</h1>
+<p>This guide explains the actions students can take within the Placement Matching System and outlines how access and functions are controlled based on important deadlines.</p>
+
+
+<div class="accordion accordion-flush" id="studentsManualAccordion">
+
+  <!-- 1. Login Process -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        1. Login Process
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Students can log in to the Placement Matching System through the unified login portal by selecting the <strong>Student</strong> option. For first-time login, the Student ID will serve as the username, and the password will be their University-assigned working email address.</p>
+        <p>If the student has already changed the password in the past, they should use their updated password instead. Passwords are kept hidden for security purposes, but students can choose to display the entered password by clicking the "Show" icon if needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Access Based on Deadlines -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        2. Access Based on Deadlines
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>Student access to the system is strictly controlled by two key deadlines:</p>
+        <ul>
+          <li>Details Deadline</li>
+          <li>Student Ranking Deadline</li>
+        </ul>
+        <p>Students will only be able to interact with the portal if they are within either of these deadline periods. Outside of these timeframes, access to the main features will be restricted.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Details Deadline Timeline -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed " role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        3. Details Deadline Timeline
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light">
+        <p>When students log in before the details deadline set by the administrators, they are directed to the <strong>Details Update</strong> section.</p>
+        <p>In this section, students are expected to complete or update specific personal and academic information that will be used during the matching process with potential employers. Students can update the following fields:</p>
+        <ul>
+          <li>Course (from a pre-listed selection provided by the admin)</li>
+          <li>Skills (choosing from system-listed options)</li>
+          <li>Preferred Placement Duration</li>
+          <li>Car Ownership Status (Yes/No)</li>
+          <li>Modules Studied (selectable from available list)</li>
+          <li>Comments (free text; can be used as a cover letter or special notes for employers)</li>
+        </ul>
+        <p><strong>Please note:</strong> Fields such as Student Name, Email ID, and Student ID are not editable by students, as these are fixed and controlled by the admin.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Student Ranking Deadline -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed " role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+        4. Student Ranking Deadline
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+      <div class="accordion-body bg-light" style="border-bottom: 1px solid lightgrey;">
+        <p>When students log in after the details deadline has passed and before the employer ranking deadline, they enter the <strong>Opportunity Ranking Phase</strong>.</p>
+        <p>During this phase:</p>
+        <ul>
+          <li>Students will be shown a list of opportunities that are suitable for them based on their entered details (course, skills, modules, etc.).</li>
+          <li>These visible opportunities are filtered, so students only see those they qualify for.</li>
+          <li>Students must rank the opportunities numerically according to their preferences (e.g., 1 for top choice, 2 for second, and so on).</li>
+          <li>Duplicate rankings are not allowed; each opportunity must have a unique rank number.</li>
+          <li>Company names and detailed information are intentionally hidden during this stage to ensure unbiased rankings and to protect employer privacy until the final match is complete.</li>
+        </ul>
+        <p>After submitting their rankings, students will be given the option to either logout or re-rank the opportunities if they wish to make changes (as long as it’s still within the allowed ranking deadline).</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="button-group mb-3 d-flex justify-content-center">
+    <a href="javascript:history.back()" class="btn">Go Back</a>
+</div>
+    
+    {% else %}
+    <h1 class="mt-4">Unified LOGIN Mechanism</h1>
+
+<p>The Placement Matching System has an integrated unified login system designed to support three different types of users. When accessing the platform, users are required to select their appropriate role in order to log in. The three login categories include:</p>
+
+<ul>
+    <li><strong>Placement Team (Admins)</strong></li>
+    <li><strong>Students</strong></li>
+    <li><strong>Employers</strong></li>
+</ul>
+
+<p>Each category has its own login method and access permissions based on the user's role.</p>
+
+
+
+<div class="accordion accordion-flush" id="studentsManualAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+            1. Admin Login
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#studentsManualAccordion">
+          <div class="accordion-body bg-light">
+            <p>Admins are part of the placement team and hold administrative privileges for managing the platform.</p>
+
+<ul>
+    <li>Admins log in using a standard account ID, which consists of their registered email address and a password that is initially set by the program developers.</li>
+    <li>Admin accounts are not user-creatable by general access. Additional admin accounts can only be created after receiving clearance from the respective department. These accounts will be manually added by the system maintenance team when needed.</li>
+    <li>Once logged in, admins are provided with an option to change their password for added security.</li>
+</ul>
+            </div>
+        </div>
+      </div>
+    
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+            2. Student Login
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+          <div class="accordion-body bg-light">
+            <p>Students are the primary users of the system who access the platform to provide their personal details and rank the placement opportunities shared by employers.</p>
+
+<ul>
+    <li>Students are pre-added by the admin team before the matching process begins.</li>
+    <li><strong>For first-time login:</strong>
+        <ul>
+            <li>Username will be the Student ID.</li>
+            <li>Password will be their university email address.</li>
+        </ul>
+    </li>
+    <li>After successful login, students are encouraged to change their password to something more secure.</li>
+    <li>Student access is available only until the submission deadline for personal details and opportunity rankings. After the deadline, login access will be restricted.</li>
+</ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed " role="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"  style="border-radius: 5px; font-size: 1rem; padding: 0.25rem 0.75rem; line-height: 3;">
+            3. Employer Login
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#studentsManualAccordion">
+          <div class="accordion-body bg-light" style="border-bottom: 1px solid lightgrey;">
+            <p>Employers (also referred to as companies) are allowed to post placement opportunities and rank students.</p>
+
+<ul>
+    <li>Employers log in using a secure OTP (One-Time Password) system.</li>
+    <li>This method is used because a single employer email may be accessed by multiple team members, and a static password may not be suitable in such cases.</li>
+    <li>The OTP system ensures a more flexible and secure login experience by eliminating the need to remember or share a fixed password.</li>
+    <li>Only employers who are pre-approved and added by the admin team are eligible to receive OTPs.</li>
+    <li>If an employer who is not registered attempts to log in, they will receive an error, and access will be denied.</li>
+</ul>
+          </div>
+        </div>
+      </div>
+</div>
+<br>
+
+<div class="button-group mb-3 d-flex justify-content-center">
+    <a href="javascript:history.back()" class="btn">Go Back</a>
+</div>
+
+    {% endif %}
+</div>
+
+
+<style>
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    }
+
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    }
+
+    .accordion-button:not(.collapsed) {
+    background-color: #1F3165 !important;
+    color: white !important;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    
+}
+.accordion-button.collapsed {
+    box-shadow: none; /* Remove any existing shadow */
+    border: 2px solid #1F3165 !important; /* Apply a custom border */
+    color: white !important; /* Set the text color */
+    background-color:#1F3165 !important;
+}
+
+
+
+    
+  </style>
+
+{% endblock content %}
